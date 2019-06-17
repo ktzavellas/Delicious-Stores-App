@@ -3,7 +3,7 @@
 Delicious-Stores-App is a React Application for Restaurants. Its purpose is to: 
 
  1. Let the user search for a store(using the map or browsing the collection of stores). 
- 2. Let an owner of a store to add the store to the existing collection, make it visible and advertise it.
+ 2. Let an owner of a store to add the store to the existing collection.
 
 ## Installation
 
