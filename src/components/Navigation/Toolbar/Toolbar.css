@@ -1,0 +1,25 @@
+.Toolbar {
+  grid-row: 1/2;
+  background-color: #303030;
+  box-sizing: border-box;
+  padding: 0 20px;
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  letter-spacing: 0.05em;
+}
+
+.Navbar {
+  width: 100%;
+}
+
+.Logo a {
+  text-decoration: none;
+}
+
+@media (max-width: 800px) {
+  .Navbar {
+    display: none;
+  }
+}

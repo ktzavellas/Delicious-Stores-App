@@ -1,0 +1,71 @@
+.SelectedStoreContainer {
+  grid-column: 5/13;
+  grid-row: 1/13;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 0.05em;
+}
+
+.SelectedStore {
+  width: 80%;
+  box-shadow: 5px 10px 8px #888888;
+  background-color: white;
+  padding: 20px;
+  align-items: center;
+  margin: 40px auto;
+  text-align: center;
+}
+
+.SelectedStore h1 {
+  font-size: 1.2rem;
+  display: inline-block;
+  background-image: linear-gradient(
+    to right,
+    rgb(34, 119, 144),
+    rgb(32, 171, 235)
+  );
+  color: white;
+  box-shadow: 10px 8px 8px #888888;
+  padding: 15px;
+}
+
+.Description {
+  margin: 32px 0 54px;
+}
+
+:global(.mapboxgl-canvas) {
+  position: absolute;
+  left: 0;
+}
+
+@media (max-width: 1200px) {
+  .SelectedStoreContainer {
+    grid-column: 1/13;
+  }
+}
+
+@media (max-width: 600px) {
+  .SelectedStore {
+    width: 90%;
+  }
+}
+
+@media (max-width: 800px) {
+  .SelectedStore h1 {
+    font-size: 1rem;
+    padding: 10px;
+  }
+}
+
+@media (max-height: 850px) {
+  .SelectedStoreContainer {
+    grid-row: auto;
+  }
+  .SelectedStore {
+    margin: 30px 0;
+  }
+  .SelectedStore p {
+    margin: 32px 0;
+  }
+}

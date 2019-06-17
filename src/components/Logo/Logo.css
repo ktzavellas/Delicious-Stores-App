@@ -1,0 +1,23 @@
+.Logo {
+  font-family: "Caveat", cursive;
+  padding: 8px;
+  margin: 0 30px 0 20px;
+  border-radius: 5px;
+  color: #ffffff;
+}
+
+.Logo h1 {
+  font-size: 2.2rem;
+  margin: 10px 0;
+}
+
+@media (max-width: 800px) {
+  .Logo h1 {
+    font-size: 1.6rem;
+  }
+
+  .Logo {
+    margin: 0 5px 0 0;
+    padding: 2px 8px;
+  }
+}

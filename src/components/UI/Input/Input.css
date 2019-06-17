@@ -1,0 +1,27 @@
+.Input {
+  width: 80%;
+}
+
+.InputElement {
+  outline: none;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  font: inherit;
+  padding: 6px 10px;
+  width: 100%;
+  display: block;
+}
+
+.InputElement:focus {
+  outline: none;
+  background-color: #ccc;
+}
+
+.Invalid {
+  border: 1px solid red;
+  background-color: rgb(185, 140, 136);
+}
+
+:global(.picky__placeholder) {
+  font-size: 1.1em;
+}

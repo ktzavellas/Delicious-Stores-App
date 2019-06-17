@@ -1,0 +1,76 @@
+.Popup {
+  padding: 18px;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+.Popup h1 {
+  font-size: 1rem;
+  background-color: orange;
+  padding: 5px 15px;
+  display: inline-block;
+}
+
+.ListItemName {
+  display: inline-block;
+  margin: 10px;
+  padding: 0;
+}
+
+.ListItemName a {
+  display: block;
+  text-decoration: none;
+  background-color: orange;
+  color: black;
+  font-weight: bold;
+  padding: 8px;
+}
+
+:global(.mapboxgl-popup-content) {
+  padding: 0 !important;
+}
+
+:global(.mapboxgl-marker) {
+  width: 0;
+  height: 0;
+}
+
+@media (max-width: 1000px) {
+  .Popup {
+    padding: 15px;
+  }
+
+  .Popup p {
+    margin: 5px;
+    font-size: 0.9rem;
+  }
+
+  .ListItemName {
+    margin: 8px;
+  }
+
+  .ListItemName a {
+    padding: 6px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .Popup {
+    padding: 10px;
+  }
+
+  .Popup p {
+    margin: 5px;
+    font-size: 0.8rem;
+  }
+
+  .ListItemName {
+    margin: 5px;
+  }
+
+  .ListItemName a {
+    padding: 4px;
+    font-size: 0.9rem;
+  }
+}

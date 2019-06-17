@@ -1,0 +1,16 @@
+.matchedStoresContainer {
+  grid-row: 2/9;
+  overflow: scroll;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  width: 90%;
+  padding: 20px;
+  margin: 30px auto;
+}
+
+@media (max-width: 800px) {
+  .matchedStoresContainer {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,57 @@
+.SideDrawer {
+  display: none;
+}
+
+.LogoSM {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .SideDrawer {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    width: 280px;
+    max-width: 70%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 200;
+    background-color: #303030;
+    padding: 32px 16px;
+    transition: transform 0.3s ease-out;
+  }
+  .SideDrawer a {
+    text-align: left;
+    padding: 8px;
+  }
+  .Logo a {
+    text-decoration: none;
+    display: block;
+    padding: 0;
+  }
+}
+
+@media (max-height: 400px) {
+  .SideDrawer {
+    padding: 10px 16px;
+  }
+  .Logo {
+    display: none;
+  }
+  .LogoSM {
+    display: initial;
+  }
+  .LogoSM a {
+    text-decoration: none;
+    display: block;
+    padding: 0;
+  }
+}
+
+.Open {
+  transform: translateX(0);
+}
+.Close {
+  transform: translateX(-100%);
+}

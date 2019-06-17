@@ -1,0 +1,13 @@
+.Layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(7, 1fr);
+  height: 100vh;
+}
+
+@media (max-width: 800px) {
+  .Layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(8, 1fr);
+  }
+}

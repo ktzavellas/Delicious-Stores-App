@@ -1,0 +1,94 @@
+.LoginContainer {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 0.05em;
+}
+
+.Login {
+  width: 50%;
+  padding: 30px;
+}
+
+.Login h1 {
+  font-size: 1.3rem;
+  margin-top: 30px;
+}
+
+.Login label {
+  margin-top: 10px;
+  font-size: 1rem;
+}
+
+.Login input {
+  width: 100%;
+  height: 30px;
+  margin: 10px 0;
+}
+
+.Login button {
+  background-image: linear-gradient(
+    to right,
+    rgba(255, 115, 0, 0.897),
+    rgb(255, 145, 0)
+  );
+  border: 2px solid rgb(129, 129, 129);
+  margin: 20px 0;
+  padding: 8px;
+  width: 100%;
+  font-size: 0.9rem;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 1200px) {
+  .Login {
+    width: 70%;
+  }
+
+  .Login h1 {
+    font-size: 1.2rem;
+  }
+
+  .Login label {
+    font-size: 0.95rem;
+  }
+
+  .Login button {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .Login {
+    width: 90%;
+  }
+
+  .Login h1 {
+    font-size: 1rem;
+  }
+
+  .Login label {
+    font-size: 0.9rem;
+    margin-top: 5px;
+  }
+
+  .Login button {
+    font-size: 0.75rem;
+    margin: 10px 0;
+    padding: 4px;
+  }
+
+  .Login input {
+    width: 100%;
+    height: 30px;
+    margin: 5px 0;
+  }
+}
+
+@media (max-height: 600px) {
+  .LoginContainer {
+    height: auto;
+  }
+}
