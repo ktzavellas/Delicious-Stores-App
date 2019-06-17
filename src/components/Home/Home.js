@@ -13,7 +13,7 @@ const Home = props => {
         <div>
           <h1>A world full of taste</h1>
           <p>
-            Discover our collection of delicious stores.. <br />
+            Discover our delicious stores.. <br />
             Add your own store and let the world know!{" "}
           </p>
           <li className={classes.LinkItem}>
