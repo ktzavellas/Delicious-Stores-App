@@ -59,8 +59,7 @@ class AddStoreForm extends Component {
         value: "",
         validation: {
           required: true,
-          minLength: 5,
-          maxLength: 5
+          pattern: /(?!01000|99999)(0[1-9]\d{3}|[1-9]\d{4})/g
         },
         valid: false,
         touched: false,
@@ -126,11 +125,14 @@ class AddStoreForm extends Component {
     if (rules.required && typeof value === "object") {
       isValid = value.length !== 0;
     }
-    if (rules.minLength) {
+    /* if (rules.minLength) {
       isValid = value.trim().length >= rules.minLength && isValid;
     }
     if (rules.maxLength) {
       isValid = value.trim().length <= rules.maxLength && isValid;
+    } */
+    if (rules.pattern) {
+      isValid = rules.pattern.test(value.trim()) && isValid;
     }
     return isValid;
   };
