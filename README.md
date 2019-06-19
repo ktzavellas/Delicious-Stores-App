@@ -18,3 +18,7 @@ Follow these simple steps:
   4. Paste the above token inside the **.env.local** file
   5. Open the terminal in the project directory and run npm install.
   6. Run npm start.
+
+## Note
+
+At the moment only valid german zipcodes are accepted. Enjoy...
