@@ -27,6 +27,8 @@ const input = props => {
     case "textarea":
       inputElement = (
         <textarea
+          style={{ resize: "none" }}
+          maxLength="120"
           onChange={props.changed}
           className={inputClasses.join(" ")}
           {...props.elementConfig}
@@ -38,6 +40,7 @@ const input = props => {
       inputElement = (
         <div className={classes.SelectInput}>
           <Picky
+            placeholder="None Selected *"
             className={inputClasses.join(" ")}
             open={false}
             value={props.value}

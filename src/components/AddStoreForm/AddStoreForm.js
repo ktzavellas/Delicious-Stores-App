@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import classes from "./AddStoreForm.css";
 import axios from "axios";
+import Modal from "../UI/Modal/Modal";
+import Aux from "../../hoc/Aux/Aux";
 import Spinner from "../../components/UI/Spinner/Spinner";
 import Input from "../../components/UI/Input/Input";
 import image1 from "../../assets/image44.jpeg";
@@ -12,7 +14,7 @@ class AddStoreForm extends Component {
         elementType: "input",
         elementConfig: {
           type: "text",
-          placeholder: "Add store name"
+          placeholder: "Add store name *"
         },
         value: "",
         validation: {
@@ -26,7 +28,7 @@ class AddStoreForm extends Component {
         elementType: "textarea",
         elementConfig: {
           type: "text",
-          placeholder: "Add a description"
+          placeholder: "Add a description * (max 120 characters)"
         },
         value: "",
         validation: {
@@ -40,11 +42,12 @@ class AddStoreForm extends Component {
         elementType: "input",
         elementConfig: {
           type: "text",
-          placeholder: "Street"
+          placeholder: "Street *"
         },
         value: "",
         validation: {
-          required: true
+          required: true,
+          minLength: 5
         },
         valid: false,
         touched: false,
@@ -54,7 +57,7 @@ class AddStoreForm extends Component {
         elementType: "input",
         elementConfig: {
           type: "text",
-          placeholder: "Zip"
+          placeholder: "Zip *"
         },
         value: "",
         validation: {
@@ -69,11 +72,12 @@ class AddStoreForm extends Component {
         elementType: "input",
         elementConfig: {
           type: "text",
-          placeholder: "Country"
+          placeholder: "Country *"
         },
         value: "",
         validation: {
-          required: true
+          required: true,
+          minLength: 3
         },
         valid: false,
         touched: false,
@@ -83,7 +87,7 @@ class AddStoreForm extends Component {
         elementType: "input",
         elementConfig: {
           type: "email",
-          placeholder: "Email"
+          placeholder: "Email *"
         },
         value: "",
         validation: {
@@ -114,7 +118,8 @@ class AddStoreForm extends Component {
         processed: false
       }
     },
-    loading: false
+    loading: false,
+    show: false
   };
 
   checkValidity = (value, rules) => {
@@ -125,12 +130,9 @@ class AddStoreForm extends Component {
     if (rules.required && typeof value === "object") {
       isValid = value.length !== 0;
     }
-    /* if (rules.minLength) {
+    if (rules.minLength) {
       isValid = value.trim().length >= rules.minLength && isValid;
     }
-    if (rules.maxLength) {
-      isValid = value.trim().length <= rules.maxLength && isValid;
-    } */
     if (rules.pattern) {
       isValid = rules.pattern.test(value.trim()) && isValid;
     }
@@ -182,7 +184,6 @@ class AddStoreForm extends Component {
             });
         });
     } else {
-      alert("Please fill out the required fields.. Thank you");
       const updatedStoreForm = {
         ...this.state.addStoreForm
       };
@@ -196,7 +197,7 @@ class AddStoreForm extends Component {
           : true;
         updatedStoreForm[formElementIdentifier] = updatedFormElement;
       }
-      this.setState({ addStoreForm: updatedStoreForm });
+      this.setState({ addStoreForm: updatedStoreForm, show: true });
     }
   };
 
@@ -229,6 +230,11 @@ class AddStoreForm extends Component {
     updatedStoreForm[formElementId] = updatedFormElement;
     this.setState({ addStoreForm: updatedStoreForm });
   };
+
+  modalClosedHandler = () => {
+    this.setState({ show: false });
+  };
+
   render() {
     const formElementsArray = [];
     for (let key in this.state.addStoreForm) {
@@ -262,21 +268,42 @@ class AddStoreForm extends Component {
             SUBMIT
           </button>
         </div>
+        <p className={classes.FormNote}>Fields marked with * are required</p>
       </form>
     );
     if (this.state.loading) {
       form = <Spinner />;
     }
     return (
-      <div className={classes.AddStoreFormContainer}>
-        <figure className={classes.FigureItem1}>
-          <img src={image1} className={classes.Image} alt="" />
-        </figure>
-        <div className={classes.AddStoreForm}>
-          <h1>ADD YOUR STORE</h1>
-          {form}
+      <Aux>
+        <Modal show={this.state.show} modalClosed={this.modalClosedHandler}>
+          <div className={classes.modalContent}>
+            <h1 className={classes.logo}>Delicious Stores</h1>
+            <p className={classes.modalText}>
+              Please fill out the required fields with valid data...
+              <br />
+              Thank you!
+            </p>
+            <hr />
+            <button
+              className={classes.modalButton}
+              onClick={this.modalClosedHandler}
+            >
+              OK
+            </button>
+          </div>
+        </Modal>
+
+        <div className={classes.AddStoreFormContainer}>
+          <figure className={classes.FigureItem1}>
+            <img src={image1} className={classes.Image} alt="" />
+          </figure>
+          <div className={classes.AddStoreForm}>
+            <h1>ADD YOUR STORE</h1>
+            {form}
+          </div>
         </div>
-      </div>
+      </Aux>
     );
   }
 }

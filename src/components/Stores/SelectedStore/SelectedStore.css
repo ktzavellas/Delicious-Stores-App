@@ -59,13 +59,16 @@
 }
 
 @media (max-height: 850px) {
-  .SelectedStoreContainer {
-    grid-row: auto;
-  }
   .SelectedStore {
     margin: 30px 0;
   }
   .SelectedStore p {
     margin: 32px 0;
+  }
+}
+
+@media (max-height: 600px) {
+  .SelectedStoreContainer {
+    grid-row: auto;
   }
 }
