@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Store from "./Store/Store";
 import SelectedStore from "./SelectedStore/SelectedStore";
-import image1 from "../../assets/image25.jpeg";
+import image1 from "../../assets/optimized/image5_result.jpg";
 import { Route } from "react-router-dom";
 import classes from "./Stores.css";
 import axios from "../../axios-stores";

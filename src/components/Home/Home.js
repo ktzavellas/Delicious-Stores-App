@@ -1,8 +1,8 @@
 import React from "react";
-import image1 from "../../assets/optimized/image43.jpg";
-import image2 from "../../assets/optimized/food6.jpg";
-import image3 from "../../assets/optimized/image35.jpg";
-import image4 from "../../assets/optimized/image20.jpg";
+import image1 from "../../assets/optimized/image1_result.jpg";
+import image2 from "../../assets/optimized/image2_result.jpg";
+import image3 from "../../assets/optimized/image3_result.jpg";
+import image4 from "../../assets/optimized/image4_result.jpg";
 import { Link } from "react-router-dom";
 import classes from "./Home.css";
 

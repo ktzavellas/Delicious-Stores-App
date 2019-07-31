@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import image1 from "../../../assets/optimized/image43.jpg";
+import image1 from "../../../assets/optimized/image8_result.jpg";
 import { withRouter } from "react-router-dom";
 import classes from "./Store.css";
 

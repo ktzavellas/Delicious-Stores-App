@@ -16,8 +16,11 @@ const NavigationItems = props => {
         <NavigationItem link={"/map"}>MAP</NavigationItem>
       </ul>
       <ul className={classes.NavigationItems}>
-        <NavigationItem link={"/register"}>REGISTER</NavigationItem>
-        <NavigationItem link={"/login"}>LOGIN</NavigationItem>
+        {props.isAuthenticated ? (
+          <NavigationItem link={"/logout"}>LOG OUT</NavigationItem>
+        ) : (
+          <NavigationItem link={"/auth"}>SIGN UP/LOG IN</NavigationItem>
+        )}
       </ul>
     </div>
   );

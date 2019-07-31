@@ -1,15 +1,20 @@
 import React, { Component } from "react";
 import Layout from "./hoc/Layout/Layout";
 import Stores from "./components/Stores/Stores";
-import Login from "./components/Login/Login";
-import Register from "./components/Register/Register";
 import Home from "./components/Home/Home";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, withRouter, Redirect } from "react-router-dom";
 import AddStoreForm from "./components/AddStoreForm/AddStoreForm";
 import Tags from "./components/Tags/Tags";
 import MapContainer from "./components/MapContainer/MapContainer";
+import Auth from "./components/Auth/Auth";
+import Logout from "./components/Auth/Logout/Logout";
+import { connect } from "react-redux";
+import * as actions from "./store/actions/index";
 
 class App extends Component {
+  componentDidMount() {
+    this.props.onAutoAuthCheck();
+  }
   render() {
     return (
       <Layout>
@@ -17,14 +22,26 @@ class App extends Component {
           <Route path="/add" component={AddStoreForm} />
           <Route path="/stores" component={Stores} />
           <Route path="/tags" component={Tags} />
-          <Route path="/login" component={Login} />
           <Route path="/map" component={MapContainer} />
-          <Route path="/register" component={Register} />
-          <Route path="/" component={Home} />
+          <Route path="/auth" component={Auth} />
+          <Route path="/logout" component={Logout} />
+          <Route path="/" exact component={Home} />
+          <Redirect to="/" />
         </Switch>
       </Layout>
     );
   }
 }
 
-export default App;
+const mapDispatchToProps = dispatch => {
+  return {
+    onAutoAuthCheck: () => dispatch(actions.authCheckState())
+  };
+};
+
+export default withRouter(
+  connect(
+    null,
+    mapDispatchToProps
+  )(App)
+);

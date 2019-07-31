@@ -1,0 +1,154 @@
+.AuthContainer {
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+  letter-spacing: 0.05em;
+}
+
+.AuthForm {
+  grid-column: 1/13;
+  grid-row: 1/13;
+  width: 60%;
+  min-height: 60%;
+  margin: 40px auto;
+  align-self: center;
+  text-align: center;
+  box-shadow: 5px 10px 8px #888888;
+  border: 1px solid #eee;
+  padding: 30px 10px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 80px 1fr;
+  justify-items: center;
+}
+
+.AuthForm h1 {
+  font-size: 1.2rem;
+  display: inline-block;
+  background-image: linear-gradient(
+    to right,
+    rgb(34, 119, 144),
+    rgb(32, 171, 235)
+  );
+  color: white;
+  box-shadow: 5px 10px 8px #888888;
+  padding: 10px;
+  align-self: center;
+}
+
+.Form {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(4, 1fr);
+  width: 80%;
+  height: 90%;
+  align-items: center;
+  justify-items: center;
+  align-self: center;
+}
+
+.ButtonContainer {
+  width: 100%;
+}
+
+.Button {
+  background-image: linear-gradient(
+    to right,
+    rgba(255, 115, 0, 0.897),
+    rgb(255, 145, 0)
+  );
+  letter-spacing: 0.05em;
+  color: white;
+  font-weight: bold;
+  width: 80%;
+  padding: 6px 10px;
+  font-size: 0.9rem;
+}
+
+.SwitchButton {
+  background-color: transparent;
+  border: none;
+  color: #303030;
+  outline: none;
+  cursor: pointer;
+  font: inherit;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.FormNote {
+  font-size: 0.9rem;
+  color: #303030;
+  width: 80%;
+}
+
+.ButtonDescription {
+  font-size: 0.9rem;
+  color: #303030;
+}
+
+.modalContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  font-family: "Caveat", cursive;
+  padding: 8px;
+  border-radius: 5px;
+  color: #303030;
+  font-size: 2.2rem;
+  margin: 10px 0;
+  text-align: center;
+}
+
+.modalText {
+  text-align: center;
+  line-height: 1.7rem;
+}
+
+.modalButton {
+  color: white;
+  background-image: linear-gradient(
+    to right,
+    rgba(255, 115, 0, 0.897),
+    rgb(255, 145, 0)
+  );
+  letter-spacing: 0.05em;
+  font-weight: bold;
+  padding: 6px 10px;
+  font-size: 0.9rem;
+  width: 100px;
+}
+
+@media (max-width: 800px) {
+  .Form {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .AuthForm {
+    width: 90%;
+  }
+  .logo {
+    font-size: 1.8rem;
+    padding: 6px;
+    margin: 8px 0;
+  }
+  .modalText {
+    font-size: 0.9rem;
+  }
+  .modalButton {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-height: 700px) {
+  .AuthContainer {
+    height: auto;
+  }
+}

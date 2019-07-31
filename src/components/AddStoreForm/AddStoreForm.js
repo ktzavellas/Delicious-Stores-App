@@ -5,7 +5,10 @@ import Modal from "../UI/Modal/Modal";
 import Aux from "../../hoc/Aux/Aux";
 import Spinner from "../../components/UI/Spinner/Spinner";
 import Input from "../../components/UI/Input/Input";
-import image1 from "../../assets/image44.jpeg";
+import image1 from "../../assets/optimized/image6_result.jpg";
+import image2 from "../../assets/optimized/image7_result.jpg";
+import { connect } from "react-redux";
+import * as actions from "../../store/actions/index";
 
 class AddStoreForm extends Component {
   state = {
@@ -91,7 +94,8 @@ class AddStoreForm extends Component {
         },
         value: "",
         validation: {
-          required: true
+          required: true,
+          pattern: /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/
         },
         valid: false,
         touched: false,
@@ -177,7 +181,9 @@ class AddStoreForm extends Component {
             )
             .then(response => {
               this.setState({ loading: false });
-              this.props.history.push("/stores");
+              this.props.history.push(
+                "/stores/" + this.state.addStoreForm.name.value
+              );
             })
             .catch(error => {
               this.setState({ loading: false });
@@ -235,6 +241,11 @@ class AddStoreForm extends Component {
     this.setState({ show: false });
   };
 
+  onAuthHandler = () => {
+    this.props.onSetAuthRedirectPath("/add");
+    this.props.history.push("/auth");
+  };
+
   render() {
     const formElementsArray = [];
     for (let key in this.state.addStoreForm) {
@@ -271,6 +282,28 @@ class AddStoreForm extends Component {
         <p className={classes.FormNote}>Fields marked with * are required</p>
       </form>
     );
+
+    if (!this.props.isAuthenticated) {
+      form = (
+        <div className={classes.authMessage}>
+          <div>
+            <h2>Authentication Required!</h2>
+            <p>Please visit the Sign up / Log in page to authenticate</p>
+            <button
+              className={classes.onAuthButton}
+              onClick={this.onAuthHandler}
+            >
+              OK
+            </button>
+          </div>
+
+          <figure className={classes.FigureItem2}>
+            <img src={image2} className={classes.Image2} alt="" />
+          </figure>
+        </div>
+      );
+    }
+
     if (this.state.loading) {
       form = <Spinner />;
     }
@@ -308,4 +341,19 @@ class AddStoreForm extends Component {
   }
 }
 
-export default AddStoreForm;
+const mapStateToProps = state => {
+  return {
+    isAuthenticated: state.token !== null
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onSetAuthRedirectPath: path => dispatch(actions.setAuthRedirectPath(path))
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AddStoreForm);
