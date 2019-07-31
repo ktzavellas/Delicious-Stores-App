@@ -23,4 +23,12 @@ REACT_APP_stores_token="pk.eyJ1Ijoia29uc3RhbnRpbm9zMTk4MiIsImEiOiJjandob2V5dzMwM
 
 ## Note
 
-At the moment only valid german zip codes are accepted. Enjoy...
+At the moment only valid german zip codes are accepted.
+
+You can login using the information below:
+Email: kon@kon.com
+Password: 121212
+
+Or sign up using any random email (example@example.com) and password (password should be at least 6 characters long)
+
+Enjoy...
