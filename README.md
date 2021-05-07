@@ -14,7 +14,7 @@ Follow these simple steps:
 3. Copy the following token exactly as it is:
 
 ```bash
-REACT_APP_stores_token="pk.eyJ1Ijoia29uc3RhbnRpbm9zMTk4MiIsImEiOiJjandob2V5dzMwMmN6NGFzNXRldXNteHd1In0.-kgF9ABvT7FZFdlzNvnZTw"
+REACT_APP_stores_token="pk.eyJ1Ijoia29uc3RhbnRpbm9zMTk4MiIsImEiOiJja29lOTMwem4wOXl3Mm9zOXozM2w3ZDRsIn0.jdTXEM7gzNJyuNKjwvmEVA"
 ```
 
 4. Paste the above token inside the **.env.local** file
